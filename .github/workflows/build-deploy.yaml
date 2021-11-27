@@ -1,7 +1,7 @@
 name: Build and Deploy Code
 on: push
 jobs:
-  job1:
+  build:
     environment:
       name: testing
     env:
@@ -41,3 +41,14 @@ jobs:
         run: pip install -r requirements.txt
       - name: test with pytest
         run: pytest
+  deploy:
+    environment:
+      name: production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_APP_EMAIL}}
