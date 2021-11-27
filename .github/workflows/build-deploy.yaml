@@ -1,0 +1,10 @@
+name: Build and Deploy Code
+on: push
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pulling git repo
+        uses: actions/checkout@v2
+      - name: Instaling dependencies
+        uses: pip install -r requirements.txt
