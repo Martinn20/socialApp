@@ -6,5 +6,5 @@ jobs:
     steps:
       - name: Pulling git repo
         uses: actions/checkout@v2
-      - name: Instaling dependencies
-        uses: pip install -r requirements.txt
+      - name: say hi
+        run: echo "hiiiiiiiiiii"
