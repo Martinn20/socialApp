@@ -42,6 +42,8 @@ jobs:
       - name: test with pytest
         run: pytest
   deploy:
+    needs:
+      - build
     environment:
       name: production
     runs-on: ubuntu-latest
